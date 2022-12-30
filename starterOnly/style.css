@@ -68,39 +68,6 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} 
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -147,6 +114,19 @@ main {
   border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
+  width: 182px;
+  height: 50px;
+  line-height: 18px;
+  font-weight: 500;
+  position: relative;
+  top: 320px;
+}
+.close-modal{
+    position:absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .button:hover {
@@ -168,8 +148,14 @@ main {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
-
+.bground.active{
+    display: block;
+}
+.error{
+  font-size: 0.6em;
+}
 .content {
+  box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.25);
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
@@ -181,6 +167,7 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+  display: block;
 }
 
 .modal-body {
@@ -325,7 +312,7 @@ input[data-error]::after {
 .btn-signup {
   background: #fe142f;
   display: block;
-  margin: 0 auto;
+  margin: 40px auto;
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
@@ -405,7 +392,8 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  height: 650px;
+  width: 100%;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -450,7 +438,7 @@ input[data-error]::after {
   outline: none;
   text-transform: capitalize;
   font-size: 1.3rem;
-  padding: 15px 23px;
+  padding: 15px 82px;
   margin: 0;
   margin-top: 59px;
 }
@@ -473,20 +461,52 @@ input[data-error]::after {
 .hero-section > .btn-signup {
   display: none;
 }
+
+.content-thanks {
+  background: #232323;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 90%;
+  position: absolute;
+  top: 0;
+  height: 850px;
+}
+.thanks-title{
+  margin: 15px;
+  text-align: center;
+}
+
+.show {
+  opacity: 1;
+  z-index: 1;
+}
+.hidden{
+  opacity: 0;
+  z-index: -1;
+}
+
 footer {
   padding-left: 2vw;
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 979px) {
   .hero-section {
     display: block;
     box-shadow: unset;
+    height: auto;
   }
   .hero-content {
     background: #fff;
     color: #000;
     padding: 20px;
+  }
+  .content{
+    margin: 15% auto;
   }
   .hero-content::after {
     content: unset;
@@ -497,6 +517,7 @@ footer {
   .hero-headline {
     font-size: 4.5rem;
     white-space: normal;
+    font-weight: 700;
   }
   .hero-text {
     width: unset;
@@ -517,6 +538,58 @@ footer {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #icon-nav{
+    background-color: white;
+    color:#fe142f;
+  }
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .hero-headline{
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .hero-text{
+    font-size: 1.2rem;
+    margin-top: 30px;
+  }
+}
+
+ @media screen and (max-width: 520px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+    margin-top: -15px;
+  }
+  .hero-headline{
+    font-size: 2.2rem;
+  }
+  .hero-text{
+    font-size: 1.1rem;
+  }
+  .hero-content{
+    min-width: auto;
+  }
+  .content{
+    margin: 25% auto;
+  }
+} 
+
 @keyframes modalopen {
   from {
     opacity: 0;
@@ -526,4 +599,3 @@ footer {
     opacity: 1;
   }
 }
-
