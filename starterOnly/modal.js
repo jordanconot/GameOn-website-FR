@@ -75,11 +75,13 @@ function closeModalX() {
   btnSpanClose.addEventListener("click", function(e) {
     e.preventDefault();
     closeModalX();
+    window.location.reload();
   });
   
   btnCloseThanks.addEventListener("click", function(e) {
     e.preventDefault();
     closeModal();
+    window.location.reload();
   });
   
 // Event listener of the submit button + function submitForm
@@ -96,7 +98,6 @@ function closeModalX() {
       btnSubmit.classList.add("hidden");
       return true;
     } else {
-      alert("Oups on dirait que vous avez mal rempli le formulaire !");
       return false;
     };
   };
