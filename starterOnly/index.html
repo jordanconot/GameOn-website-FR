@@ -51,17 +51,18 @@
         <button class="btn-signup modal-btn">
           je m'inscris
         </button>
-        
         <div class="bground">
           <div class="content">
-            <button class="close-modal modal-btn">X</button>
+            <button class="close-modal">X</button>
             <div class="modal-body">
               <!--Thanks-->
               <div class="content-thanks hidden" id="content-thanks">
-                  <span class="thanks-closeBtn close" id="spanBtnClose"></span>
-                  <p class="thanks-title">Merci pour </br>
-                     votre inscription</p>
-                  <button type="button" class="thanks-closeBtn button" id="btnClose">Fermer</button>
+                <div class="box-titleThanks">
+                <p class="thanks-title">Merci pour </br>
+                  votre inscription</p>
+                </div>
+                <button type="button" class="close-modal" id="closeThanksModal">Fermer</button>
+                <button type="button" class="thanks-closeBtn  close-modal" id="btnClose">X</button>
               </div>
             <!--Form -->
             <form name="reserve" action="" method="get" id="form" >
@@ -132,7 +133,7 @@
                 <input class="checkbox-input" type="checkbox" id="checkbox2" name="checkbox" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                   Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>

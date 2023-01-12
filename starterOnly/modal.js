@@ -24,22 +24,19 @@ const radio = document.getElementById("locationField");
 const btnSubmit = document.getElementById("btnSubmit");
 const thanks = document.querySelector(".content-thanks");
 const btnCloseThanks = document.getElementById("btnClose");
-const btnSpanClose = document.getElementById("spanBtnClose");
+const btnClose = document.querySelectorAll(".close-modal");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+btnClose.forEach((btn) => btn.addEventListener("click", closeModal));
 
 // launch modal form
-function launchModal() {
-    modalbg.classList.toggle("active");
-  };
+  function launchModal() {
+    modalbg.style.display = "block";
+  }
 // Close modal form 
 function closeModal() {
-  modalbg.classList.add("hidden");
-};
-// Close modal form with X
-function closeModalX() {
-  modalbg.classList.add("hidden");
+  modalbg.style.display = "none";
 };
 
 // Event listener on different fields + validity functions
@@ -70,19 +67,6 @@ function closeModalX() {
   radio.addEventListener("change", function() {
     isValidLocation();
   });
-
-// Event listener + functions to close the modal
-  btnSpanClose.addEventListener("click", function(e) {
-    e.preventDefault();
-    closeModalX();
-    window.location.reload();
-  });
-  
-  btnCloseThanks.addEventListener("click", function(e) {
-    e.preventDefault();
-    closeModal();
-    window.location.reload();
-  });
   
 // Event listener of the submit button + function submitForm
   btnSubmit.addEventListener("click", function(e) {
@@ -109,29 +93,34 @@ function closeModalX() {
     const firstName = document.getElementById("firstname");
 
     if(firstRegex.test(firstName.value) == false) {
-      errorFirstName.textContent = "Veuillez entrer au moin deux caractères qui ne soit que des lettres";
-      errorFirstName.style.color = "red";
+      errorFirstName.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du prénom";
+      errorFirstName.style.color = "#FF4E60";
+      firstName.style.border = "2px solid #FF4E60";
       return false;
     } else {
       errorFirstName.textContent = "Prénom validé";
       errorFirstName.style.color = "green";
+      firstName.style.border = "none";
       return true;
     };
   };
 
 // Check the last name field with a regex and add an error or confirmation message
   function isValidLastName() {
+    
     const lastRegex = new RegExp(/^[a-zA-Z \-]{2,20}$/);
     const errorLastName = document.getElementById("errorLastName");
     const lastName = document.getElementById("lastname");
 
     if(lastRegex.test(lastName.value) == false)  {
-      errorLastName.textContent = "Veuillez entrer au moin deux caractères qui ne soit que des lettres";
-      errorLastName.style.color = "red";
+      errorLastName.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
+      errorLastName.style.color = "#FF4E60";
+      lastName.style.border = "2px solid #FF4E60";
       return false;
     } else {
       errorLastName.textContent = "Nom validé";
       errorLastName.style.color = "green";
+      lastName.style.border = "none";
       return true;
     };
   };
@@ -144,11 +133,13 @@ function closeModalX() {
 
     if(emailRegex.test(email.value) === false) {
       errorEmail.textContent = "Format incorrect";
-      errorEmail.style.color = "red";
+      errorEmail.style.color = "#FF4E60";
+      email.style.border = "2px solid #FF4E60";
       return false;
     } else {
       errorEmail.textContent = "e-mail validé";
       errorEmail.style.color = "green";
+      email.style.border = "none";
       return true;
     };
   };
@@ -161,10 +152,12 @@ function closeModalX() {
     if(!birthDate.value == "") {
       errorBirthDate.textContent = "Date validé";
       errorBirthDate.style.color = "green";
+      birthDate.style.border = "none";
       return true;
     } else {
-      errorBirthDate.textContent = "Merci de renseigner votre de naissance";
-      errorBirthDate.style.color= "red";
+      errorBirthDate.textContent = "Vous devez entrer votre date de naissance";
+      errorBirthDate.style.color= "#FF4E60";
+      birthDate.style.border = "2px solid #FF4E60";
       return false;
     };   
   };
@@ -178,23 +171,30 @@ function closeModalX() {
       if(quantityRegex.test(quantity.value) === true) {
         errorQuantity.textContent = "Choix validé";
         errorQuantity.style.color = "green";
+        quantity.style.border = "2px solid green";
         return true;
         
       } else {
         errorQuantity.textContent = "Merci de renseigner un nombre entre 0 et 99";
-        errorQuantity.style.color= "red";
+        errorQuantity.style.color= "#FF4E60";
+        quantity.style.border = "2px solid #FF4E60";
         return false;
       };
     };
-
+    
 // Check the location field on checking if checked and add an error or confirmation message
     function isValidLocation() {
       const errorLocation = document.getElementById("errorLocation");
-      const location = document.getElementsByTagName("location");
-
-      if(location.checked == false) {
-        errorLocation.textContent = "Vous devez choisir une ville";
-        errorLocation.style.color = "red";
+      const locationArray = document.getElementsByName("location");
+      if(!locationArray[0].checked &&
+         !locationArray[1].checked && 
+         !locationArray[2].checked && 
+         !locationArray[3].checked && 
+         !locationArray[4].checked &&
+         !locationArray[5].checked)
+      {
+        errorLocation.textContent = "Vous devez choisir une option";
+        errorLocation.style.color = "#FF4E60";
         return false;
       } else {
         errorLocation.textContent = "Choix de la ville validé";
@@ -210,7 +210,7 @@ function closeModalX() {
 
       if(checkBox1.checked == false) {
         errorCheckbox.textContent = "Vous devez vérifier que vous acceptez les termes et conditions";
-        errorCheckbox.style.color = "red";
+        errorCheckbox.style.color = "#FF4E60";
         return false;
       } else {
         errorCheckbox.textContent = "Vous avez acceptez les conditions d'utilisations";
