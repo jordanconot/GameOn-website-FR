@@ -725,6 +725,12 @@ footer {
   .text-control{
     height: 42px;
   }
+  .box-titleThanks{
+    margin-bottom: 150px;
+  }
+  #closeThanksModal {
+    top: 70px;
+  }
 }
 
 @keyframes modalopen {
