@@ -16,7 +16,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -151,7 +150,7 @@ main {
   line-height: 18px;
   font-weight: 500;
   position: relative;
-  top: 320px;
+  top: 130px;
   right: 0;
 }
 
@@ -367,6 +366,7 @@ input {
   border: 0;
   margin-top: 10px;
 }
+
 .btn-signup {
   background: #fe142f;
   display: block;
@@ -462,7 +462,7 @@ input {
   grid-template-columns: repeat(12, 1fr);
   overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-  
+
 }
 
 .hero-content {
@@ -553,6 +553,7 @@ input {
   display: flex;
   align-items: center;
   text-align: center;
+  margin-bottom: 100px;
 }
 
 .thanks-title {
@@ -584,7 +585,7 @@ footer {
   .header-logo {
     margin-left: 33px;
   }
-  
+
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -641,6 +642,7 @@ footer {
   #icon-nav {
     background-color: white;
     color: #fe142f;
+
   }
 
   .topnav a {
@@ -677,26 +679,33 @@ footer {
     font-size: 1.2rem;
     margin-top: 30px;
   }
+
+  img {
+    width: 200px;
+  }
 }
 
 @media screen and (max-width: 520px) {
   .topnav {
     margin-top: 15px;
   }
+
   .topnav a {
     display: none;
   }
-  
+
   .hero-img img {
     margin-top: 0;
-}
+  }
+
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
-  img{
+
+  img {
     width: 125px;
+    margin-top: 18px;
   }
 
   .hero-headline {
@@ -715,19 +724,18 @@ footer {
   .hero-content {
     min-width: auto;
   }
-
-  .content {
-    margin: 10% auto;
-  }
-  .copyrights{
+  .copyrights {
     margin: 0;
   }
-  .text-control{
+
+  .text-control {
     height: 42px;
   }
-  .box-titleThanks{
+
+  .box-titleThanks {
     margin-bottom: 150px;
   }
+
   #closeThanksModal {
     top: 70px;
   }
