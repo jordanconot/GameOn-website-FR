@@ -202,8 +202,10 @@ function isValidLocation() {
     ) {
         errorLocation.textContent = 'Vous devez choisir une option';
         errorLocation.style.color = '#FF4E60';
+        console.log(errorLocation);
         return false;
     } else {
+        errorLocation.textContent = '';
         return true;
     }
 }
@@ -218,6 +220,7 @@ function isValidCheckCondition() {
         errorCheckbox.style.color = '#FF4E60';
         return false;
     } else {
+        errorCheckbox.textContent = "";
         return true;
     }
 }
